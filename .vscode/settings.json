@@ -1,0 +1,7 @@
+{
+  "cSpell.words": ["sveltejs", "tailwindcss"],
+  "css.lint.unknownAtRules": "ignore",
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  }
+}
