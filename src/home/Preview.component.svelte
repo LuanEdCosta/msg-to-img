@@ -5,6 +5,7 @@
 </script>
 
 <div
+  id="preview"
   style:background={color}
   class="rounded-lg p-4 h-64 w-full text-white text-center flex flex-col items-center justify-center gap-2"
 >

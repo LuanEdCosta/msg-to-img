@@ -1,14 +1,38 @@
 <script lang="ts">
+  import html2canvas from 'html2canvas'
+  import {
+    copyImageToClipboard,
+    canCopyImagesToClipboard,
+  } from 'copy-image-clipboard'
+
   import Result from './Result.component.svelte'
   import Params from './Params.component.svelte'
   import Preview from './Preview.component.svelte'
+  import Controls from './Controls.component.svelte'
+
+  const canCopyImage = canCopyImagesToClipboard()
 
   let title = 'Title'
   let subtitle = 'Subtitle'
   let color = '#5e67ec'
+  let result = ''
+
+  async function handleGenerateImage() {
+    const preview = document.getElementById('preview')
+    const canvas = await html2canvas(preview)
+    result = canvas.toDataURL()
+  }
+
+  async function handleCopyImage() {
+    await copyImageToClipboard(result)
+  }
+
+  function handleDiscardImage() {
+    result = ''
+  }
 </script>
 
-<main class="h-full w-full bg-stone-50 py-6 sm:py-8 lg:py-12">
+<main class="min-h-screen bg-stone-50 py-6 sm:py-8 lg:py-12">
   <div class="w-full max-w-screen-xl px-4 md:px-8 mx-auto flex flex-col gap-12">
     <div class="flex flex-col gap-2">
       <h1 class="text-3xl sm:text-5xl font-extrabold">Message To Image</h1>
@@ -17,9 +41,14 @@
 
     <div class="grid lg:grid-cols-2 gap-6">
       <Preview {title} {subtitle} {color} />
-      <Params bind:title bind:subtitle bind:color />
+      <Params bind:title bind:subtitle bind:color {handleGenerateImage} />
     </div>
 
-    <Result />
+    {#if result}
+      <div class="grid lg:grid-cols-2 gap-6">
+        <Result {result} />
+        <Controls {canCopyImage} {handleCopyImage} {handleDiscardImage} />
+      </div>
+    {/if}
   </div>
 </main>

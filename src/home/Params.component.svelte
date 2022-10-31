@@ -2,13 +2,12 @@
   export let title: string
   export let subtitle: string
   export let color: string
-
-  function handleSubmit() {}
+  export let handleGenerateImage: () => Promise<void>
 </script>
 
 <form
   class="flex flex-col gap-6 border border-gray-300 bg-white rounded-lg p-4"
-  on:submit|preventDefault={handleSubmit}
+  on:submit|preventDefault={handleGenerateImage}
   novalidate
 >
   <div class="flex flex-col gap-2">

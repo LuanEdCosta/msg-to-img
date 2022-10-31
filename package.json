@@ -23,5 +23,9 @@
     "tslib": "^2.4.0",
     "typescript": "^4.6.4",
     "vite": "^3.2.0"
+  },
+  "dependencies": {
+    "copy-image-clipboard": "^2.1.2",
+    "html2canvas": "^1.4.1"
   }
 }
