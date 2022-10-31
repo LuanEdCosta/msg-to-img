@@ -19,13 +19,22 @@
   let result = ''
 
   async function handleGenerateImage() {
-    const preview = document.getElementById('preview')
-    const canvas = await html2canvas(preview)
-    result = canvas.toDataURL()
+    try {
+      const preview = document.getElementById('preview')
+      const canvas = await html2canvas(preview)
+      result = canvas.toDataURL()
+    } catch (e) {
+      alert('Failed to generate image!')
+    }
   }
 
   async function handleCopyImage() {
-    await copyImageToClipboard(result)
+    try {
+      await copyImageToClipboard(result)
+      alert('Image copied to clipboard!')
+    } catch (e) {
+      alert('Failed to copy image!')
+    }
   }
 
   function handleDiscardImage() {
