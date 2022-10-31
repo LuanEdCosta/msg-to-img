@@ -3,10 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://luanedcosta.github.io/msg-to-img",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "vite build",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "prettier:fix": "prettier --write ."
   },
@@ -14,6 +17,7 @@
     "@sveltejs/vite-plugin-svelte": "^1.1.0",
     "@tsconfig/svelte": "^3.0.0",
     "autoprefixer": "^10.4.13",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.18",
     "prettier": "^2.7.1",
     "svelte": "^3.52.0",

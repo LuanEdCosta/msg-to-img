@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["sveltejs", "tailwindcss"],
+  "cSpell.words": ["predeploy", "sveltejs", "tailwindcss"],
   "css.lint.unknownAtRules": "ignore",
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
