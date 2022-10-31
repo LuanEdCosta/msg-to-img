@@ -14,7 +14,8 @@
 
   let title = 'Title'
   let subtitle = 'Subtitle'
-  let color = '#5e67ec'
+  let background = '#5e67ec'
+  let color = '#ffffff'
   let result = ''
 
   async function handleGenerateImage() {
@@ -40,8 +41,15 @@
     </div>
 
     <div class="grid lg:grid-cols-2 gap-6">
-      <Preview {title} {subtitle} {color} />
-      <Params bind:title bind:subtitle bind:color {handleGenerateImage} />
+      <Preview {title} {subtitle} {background} {color} />
+
+      <Params
+        bind:title
+        bind:subtitle
+        bind:background
+        bind:color
+        {handleGenerateImage}
+      />
     </div>
 
     {#if result}

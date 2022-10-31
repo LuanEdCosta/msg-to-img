@@ -1,6 +1,7 @@
 <script lang="ts">
   export let title: string
   export let subtitle: string
+  export let background: string
   export let color: string
   export let handleGenerateImage: () => Promise<void>
 </script>
@@ -34,15 +35,28 @@
     />
   </div>
 
-  <div class="flex flex-col gap-2">
-    <label for="color" class="font-bold w-full">Color</label>
+  <div class="flex items-center flex-wrap gap-10">
+    <div class="flex flex-col gap-2">
+      <label for="background" class="font-bold w-full">Background</label>
 
-    <input
-      id="color"
-      type="color"
-      placeholder="Choose a Color"
-      bind:value={color}
-    />
+      <input
+        id="background"
+        type="color"
+        placeholder="Choose a Background"
+        bind:value={background}
+      />
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="color" class="font-bold w-full">Text Color</label>
+
+      <input
+        id="color"
+        type="color"
+        placeholder="Choose a Color"
+        bind:value={color}
+      />
+    </div>
   </div>
 
   <button
