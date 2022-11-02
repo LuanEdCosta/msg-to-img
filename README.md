@@ -12,7 +12,7 @@ I just loved the syntax :heart:. Everything is so simple and the final bundle is
 
 ## :computer: Development
 
-Clone the project then run:
+Clone the project, open a terminal window and run:
 
 ```bash
 yarn install
